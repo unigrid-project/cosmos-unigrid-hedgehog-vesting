@@ -6,8 +6,9 @@ import (
 	"testing"
 	"time"
 
+	"ugdvesting/x/ugdvesting/types"
+
 	sdkmath "cosmossdk.io/math"
-	"github.com/timnhanta/ugdvesting/x/hedgehogvesting/types"
 )
 
 func TestGetUnvestedAmount(t *testing.T) {

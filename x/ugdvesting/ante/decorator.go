@@ -3,11 +3,12 @@ package app
 import (
 	"fmt"
 
+	"ugdvesting/x/ugdvesting/types"
+
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/timnhanta/ugdvesting/x/hedgehogvesting/types"
 )
 
 // ValidateBasicDecorator will call tx.ValidateBasic and return any non-nil error.
@@ -55,10 +56,18 @@ func ValidateTransaction(ctx sdk.Context, bk bankkeeper.Keeper, msgs []sdk.Msg) 
 				return err
 			}
 
-			var vesting *types.Vesting
-			vesting = types.HegdehogRequestGetVestingByAddr(addr.String())
+			vesting := types.HegdehogRequestGetVestingByAddr(addr.String())
 			if vesting == nil {
 				return nil
+			}
+
+			isInMintingList := types.HegdehogCheckIfInMintingList(addr.String())
+			fmt.Println("minting ", isInMintingList)
+			if isInMintingList {
+				fmt.Println("minting2 ", isInMintingList)
+				return &types.MyError{
+					Message: fmt.Sprintf("Address: %s should not be in minting and vesting list", addr.String()),
+				}
 			}
 
 			unvestedAmount := types.GetUnvestedAmount(*vesting)
