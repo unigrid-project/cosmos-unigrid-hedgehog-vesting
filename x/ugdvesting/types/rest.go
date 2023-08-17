@@ -3,14 +3,14 @@ package types
 import (
 	"crypto/tls"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 )
 
 const (
 	HedgehogVestingUrl = "https://localhost:52884/gridspork/vesting-storage/"
-	HedgehogMintingUrl = "https://localhost:52884/gridspork/mint-storage/"
+	HedgehogMintingUrl = "https://localhost:52884/gridspork/mint-storage"
 )
 
 func HegdehogRequestGetVestingByAddr(addr string) *Vesting {
@@ -27,11 +27,15 @@ func HegdehogRequestGetVestingByAddr(addr string) *Vesting {
 
 	defer resp.Body.Close()
 
+	if resp.StatusCode == 404 {
+		return nil
+	}
+
 	if resp.StatusCode < 200 || resp.StatusCode > 299 {
 		panic(err)
 	}
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		panic(err)
 	}
@@ -66,7 +70,7 @@ func HegdehogCheckIfInMintingList(addr string) bool {
 
 	client := &http.Client{Transport: tr}
 
-	resp, err := client.Get(HedgehogMintingUrl + addr)
+	resp, err := client.Get(HedgehogMintingUrl)
 	if err != nil {
 		panic(err)
 	}
@@ -77,7 +81,7 @@ func HegdehogCheckIfInMintingList(addr string) bool {
 		panic(err)
 	}
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		panic(err)
 	}

@@ -62,9 +62,7 @@ func ValidateTransaction(ctx sdk.Context, bk bankkeeper.Keeper, msgs []sdk.Msg) 
 			}
 
 			isInMintingList := types.HegdehogCheckIfInMintingList(addr.String())
-			fmt.Println("minting ", isInMintingList)
 			if isInMintingList {
-				fmt.Println("minting2 ", isInMintingList)
 				return &types.MyError{
 					Message: fmt.Sprintf("Address: %s should not be in minting and vesting list", addr.String()),
 				}
