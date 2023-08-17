@@ -1,4 +1,4 @@
-module ugdvesting
+module github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting
 
 go 1.19
 
