@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"ugdvesting/x/ugdvesting/types"
+	"github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting/types"
 )
 
 func TestHegdehogRequestGetVesting(t *testing.T) {

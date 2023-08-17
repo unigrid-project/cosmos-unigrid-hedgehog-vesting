@@ -110,15 +110,15 @@ import (
 	ibctm "github.com/cosmos/ibc-go/v7/modules/light-clients/07-tendermint"
 	"github.com/spf13/cast"
 
-	ugdvestingmodule "ugdvesting/x/ugdvesting"
-	ugdvestingante "ugdvesting/x/ugdvesting/ante"
-	ugdvestingmodulekeeper "ugdvesting/x/ugdvesting/keeper"
-	ugdvestingmoduletypes "ugdvesting/x/ugdvesting/types"
+	ugdvestingmodule "github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting"
+	ugdvestingante "github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting/ante"
+	ugdvestingmodulekeeper "github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting/keeper"
+	ugdvestingmoduletypes "github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting/types"
 
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
-	appparams "ugdvesting/app/params"
-	"ugdvesting/docs"
+	appparams "github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/app/params"
+	"github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/docs"
 )
 
 const (

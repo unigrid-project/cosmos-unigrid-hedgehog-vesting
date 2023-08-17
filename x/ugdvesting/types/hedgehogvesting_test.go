@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"ugdvesting/x/ugdvesting/types"
+	"github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting/types"
 
 	sdkmath "cosmossdk.io/math"
 )

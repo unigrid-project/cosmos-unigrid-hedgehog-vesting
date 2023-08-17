@@ -6,9 +6,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
-	keepertest "ugdvesting/testutil/keeper"
-	"ugdvesting/x/ugdvesting/keeper"
-	"ugdvesting/x/ugdvesting/types"
+	keepertest "github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/testutil/keeper"
+	"github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting/keeper"
+	"github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/x/ugdvesting/types"
 )
 
 func setupMsgServer(t testing.TB) (types.MsgServer, context.Context) {

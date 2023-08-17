@@ -36,7 +36,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/require"
 
-	"ugdvesting/app"
+	"github.com/unigrid-project/cosmos-sdk-unigrid-hedgehog-vesting/app"
 )
 
 type storeKeysPrefixes struct {
