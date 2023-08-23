@@ -46450,6 +46450,18 @@ paths:
               params:
                 description: params holds all the parameters of this module.
                 type: object
+                properties:
+                  coinPower:
+                    type: integer
+                    format: int64
+                  coinPowerValue:
+                    type: string
+                    format: uint64
+                  precision:
+                    type: integer
+                    format: int64
+                  denom:
+                    type: string
             description: >-
               QueryParamsResponse is response type for the Query/Params RPC
               method.
@@ -75214,6 +75226,18 @@ definitions:
       the connection handshake.
   ugdvesting.ugdvesting.Params:
     type: object
+    properties:
+      coinPower:
+        type: integer
+        format: int64
+      coinPowerValue:
+        type: string
+        format: uint64
+      precision:
+        type: integer
+        format: int64
+      denom:
+        type: string
     description: Params defines the parameters for the module.
   ugdvesting.ugdvesting.QueryParamsResponse:
     type: object
@@ -75221,4 +75245,16 @@ definitions:
       params:
         description: params holds all the parameters of this module.
         type: object
+        properties:
+          coinPower:
+            type: integer
+            format: int64
+          coinPowerValue:
+            type: string
+            format: uint64
+          precision:
+            type: integer
+            format: int64
+          denom:
+            type: string
     description: QueryParamsResponse is response type for the Query/Params RPC method.
